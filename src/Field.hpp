@@ -1,56 +1,150 @@
 #include <cstdint>
 #include <iostream>
+#include <string>
+#include <cassert>
+#include <vector>
+#include "ttmath/ttmath.h"
 
+using std::vector;
+using std::string;
 using std::uint64_t;
+using ttmath::Int;
 
-template <uint64_t P>
-class Fp {
-    static_assert(P > 1, "Modulus must be > 1");
-    static_assert(P < (1ULL << 63), "Modulus too large for safe 64-bit ops");
+#define BigInt Int<32>
 
-public:
-    uint64_t value;
+const BigInt P = "270497897142230380135924736767050121217"; // 1 + 407 * ( 1 << 119 )
 
-    Fp(uint64_t v = 0) : value(v % P) {}
+void xgcd(BigInt x, BigInt y, BigInt &a, BigInt &b, BigInt &g) { // Extended Euclidean algorithm
+    BigInt old_r = x;
+    BigInt r = y;
+    BigInt old_s = 1;
+    BigInt s = 0;
+    BigInt old_t = 0;
+    BigInt t = 1;
 
-    Fp operator+(const Fp& other) const {
-        uint64_t res = value + other.value;
-        if (res >= P) res -= P;
-        return Fp(res);
+    // std::cout << "XGCD: " << x << ", " << y << std::endl;
+
+    while (r != 0) {
+        BigInt quotient = old_r / r;
+        BigInt temp_r = r;
+        r = old_r - quotient * r;
+        old_r = temp_r;
+
+        BigInt temp_s = s;
+        s = old_s - quotient * s;
+        old_s = temp_s;
+
+        BigInt temp_t = t;
+        t = old_t - quotient * t;
+        old_t = temp_t;
+        // std::cout << old_r << ", " << old_s << ", " << old_t << std::endl;
+        // std::cout << r << ", " << s << ", " << t << std::endl;
     }
 
-    Fp operator-(const Fp& other) const {
-        return Fp((value + P - other.value) % P);
-    }
+    a = old_s;
+    b = old_t;
+    g = old_r;
+    return;
+}
 
-    Fp operator*(const Fp& other) const {
-        return Fp((__uint128_t(value) * other.value) % P);
-    }
+class FieldElement {
+    public:
+        BigInt value;
+    
+        FieldElement(BigInt v = 0) : value((v + P) % P) {}
 
-    Fp pow(uint64_t exp) const {
-        uint64_t base = value, result = 1;
-        while (exp > 0) {
-            if (exp & 1) result = (__uint128_t(result) * base) % P;
-            base = (__uint128_t(base) * base) % P;
-            exp >>= 1;
+        FieldElement operator+(const FieldElement& other) const {
+            BigInt res = value + other.value;
+            if (res >= P) res -= P;
+            return FieldElement(res);
         }
-        return Fp(result);
-    }
 
-    Fp inv() const {
-        return pow(P - 2);  // Fermat's little theorem (only valid if P is prime)
-    }
+        FieldElement operator-(const FieldElement& other) const {
+            return FieldElement((value + P - other.value) % P);
+        }
 
-    Fp operator/(const Fp& other) const {
-        return *this * other.inv();
-    }
+        FieldElement operator*(const FieldElement& other) const {
+            return FieldElement((value * other.value) % P);
+        }
 
-    bool operator==(const Fp& other) const {
-        return value == other.value;
-    }
+        FieldElement operator/(const FieldElement& other) const {
+            assert(other.value != 0);
+            BigInt a, b, g;
+            xgcd(other.value, P, a, b, g);
+            return FieldElement(value * a % P);
+        }
 
-    friend std::ostream& operator<<(std::ostream& os, const Fp& x) {
-        os << x.value;
-        return os;
-    }
+        FieldElement operator-() const {
+            return FieldElement((P - value) % P);
+        }
+
+        FieldElement inv() const {
+            BigInt a, b, g;
+            xgcd(value, P, a, b, g);
+            return FieldElement(a);
+        }
+
+        FieldElement operator^(const FieldElement& other) const {
+            return this->operator^(other.value);
+        }
+
+        FieldElement operator^(BigInt exp) const {
+            BigInt zero = 0;
+            if (exp == 0) return FieldElement(1);
+            if (exp == 1) return FieldElement(value);
+            FieldElement result(1);
+            FieldElement base(value);
+
+            while (exp != zero && base != FieldElement(1)) {
+                if (exp % 2 == 1) result = result * base;
+                base = base * base;
+                exp = exp >> 1;
+                std::cout << result << ", " << base << ", " << exp << std::endl;
+            }
+            std::cout << __LINE__ << std::endl;
+            return result;
+        }
+
+        bool operator==(const FieldElement& other) const {
+            return value == other.value;
+        }
+
+        bool operator!=(const FieldElement& other) const {
+            return value != other.value;
+        }
+
+        operator string() const {
+            return value.ToString(10);
+        }
+
+        friend std::ostream& operator<<(std::ostream& os, const FieldElement& x) {
+            os << x.value;
+            return os;
+        }
 };
+
+FieldElement generator() {
+    BigInt g = "85408008396924667383611388730472331217";
+    FieldElement gen(g);
+    return gen;
+}
+
+FieldElement primitive_nth_root(BigInt n) {
+    FieldElement g = generator();
+    BigInt order = 1;
+    order <<= 119;
+
+    while (order != n) {
+        g = g^2;
+        order <<= 1;
+    }
+    return g;
+}
+
+FieldElement sample(vector<uint8_t> &random_bytes) {
+    BigInt acc = 0;
+    for (uint8_t byte : random_bytes) {
+        acc = (acc << 8) ^ byte;
+    }
+    return FieldElement(acc);
+}

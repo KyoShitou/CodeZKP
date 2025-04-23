@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        ".als.json": "jsonc",
+        "cstdint": "cpp",
+        "ostream": "cpp"
+    }
+}

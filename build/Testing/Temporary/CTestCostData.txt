@@ -1,0 +1,13 @@
+FieldElementTest.Constructor 1 0.00539104
+FieldElementTest.Addition 1 0.00425633
+FieldElementTest.Subtraction 1 0.00405342
+FieldElementTest.Multiplication 1 0.00330858
+FieldElementTest.Negation 1 0.00341929
+FieldElementTest.Inverse 1 0.00352421
+FieldElementTest.Division 1 0.00347163
+FieldElementTest.Exponentiation 1 0.00336038
+FieldElementTest.Comparison 1 0.00295246
+XgcdTest.BasicCases 1 0.00296808
+field_test_large_prime_runner_NOT_BUILT 0 0
+---
+field_test_large_prime_runner_NOT_BUILT

@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/field_test_large_prime_runner.dir/test/fieldtest_large_prime.cpp.o -o field_test_large_prime_runner  lib/libgtest_main.a lib/libgtest.a

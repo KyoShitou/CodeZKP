@@ -1,0 +1,19 @@
+Start testing: Apr 22 20:26 EDT
+----------------------------------------------------------
+Unable to find executable: field_test_large_prime_runner_NOT_BUILT
+1/1 Testing: field_test_large_prime_runner_NOT_BUILT
+1/1 Test: field_test_large_prime_runner_NOT_BUILT
+Command: ""
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"field_test_large_prime_runner_NOT_BUILT" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"field_test_large_prime_runner_NOT_BUILT" end time: Apr 22 20:26 EDT
+"field_test_large_prime_runner_NOT_BUILT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Apr 22 20:26 EDT

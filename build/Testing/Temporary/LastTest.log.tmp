@@ -1,0 +1,322 @@
+Start testing: Apr 22 20:32 EDT
+----------------------------------------------------------
+1/12 Testing: FieldElementLargePrimeTest.ConstructorAndEquality
+1/12 Test: FieldElementLargePrimeTest.ConstructorAndEquality
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner" "--gtest_filter=FieldElementLargePrimeTest.ConstructorAndEquality" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"FieldElementLargePrimeTest.ConstructorAndEquality" start time: Apr 22 20:32 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = FieldElementLargePrimeTest.ConstructorAndEquality
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from FieldElementLargePrimeTest
+[ RUN      ] FieldElementLargePrimeTest.ConstructorAndEquality
+[       OK ] FieldElementLargePrimeTest.ConstructorAndEquality (0 ms)
+[----------] 1 test from FieldElementLargePrimeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"FieldElementLargePrimeTest.ConstructorAndEquality" end time: Apr 22 20:32 EDT
+"FieldElementLargePrimeTest.ConstructorAndEquality" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/12 Testing: FieldElementLargePrimeTest.Addition
+2/12 Test: FieldElementLargePrimeTest.Addition
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner" "--gtest_filter=FieldElementLargePrimeTest.Addition" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"FieldElementLargePrimeTest.Addition" start time: Apr 22 20:32 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = FieldElementLargePrimeTest.Addition
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from FieldElementLargePrimeTest
+[ RUN      ] FieldElementLargePrimeTest.Addition
+[       OK ] FieldElementLargePrimeTest.Addition (0 ms)
+[----------] 1 test from FieldElementLargePrimeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"FieldElementLargePrimeTest.Addition" end time: Apr 22 20:32 EDT
+"FieldElementLargePrimeTest.Addition" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/12 Testing: FieldElementLargePrimeTest.Subtraction
+3/12 Test: FieldElementLargePrimeTest.Subtraction
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner" "--gtest_filter=FieldElementLargePrimeTest.Subtraction" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"FieldElementLargePrimeTest.Subtraction" start time: Apr 22 20:32 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = FieldElementLargePrimeTest.Subtraction
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from FieldElementLargePrimeTest
+[ RUN      ] FieldElementLargePrimeTest.Subtraction
+[       OK ] FieldElementLargePrimeTest.Subtraction (0 ms)
+[----------] 1 test from FieldElementLargePrimeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"FieldElementLargePrimeTest.Subtraction" end time: Apr 22 20:32 EDT
+"FieldElementLargePrimeTest.Subtraction" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/12 Testing: FieldElementLargePrimeTest.Negation
+4/12 Test: FieldElementLargePrimeTest.Negation
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner" "--gtest_filter=FieldElementLargePrimeTest.Negation" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"FieldElementLargePrimeTest.Negation" start time: Apr 22 20:32 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = FieldElementLargePrimeTest.Negation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from FieldElementLargePrimeTest
+[ RUN      ] FieldElementLargePrimeTest.Negation
+[       OK ] FieldElementLargePrimeTest.Negation (0 ms)
+[----------] 1 test from FieldElementLargePrimeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"FieldElementLargePrimeTest.Negation" end time: Apr 22 20:32 EDT
+"FieldElementLargePrimeTest.Negation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/12 Testing: FieldElementLargePrimeTest.Multiplication
+5/12 Test: FieldElementLargePrimeTest.Multiplication
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner" "--gtest_filter=FieldElementLargePrimeTest.Multiplication" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"FieldElementLargePrimeTest.Multiplication" start time: Apr 22 20:32 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = FieldElementLargePrimeTest.Multiplication
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from FieldElementLargePrimeTest
+[ RUN      ] FieldElementLargePrimeTest.Multiplication
+[       OK ] FieldElementLargePrimeTest.Multiplication (0 ms)
+[----------] 1 test from FieldElementLargePrimeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"FieldElementLargePrimeTest.Multiplication" end time: Apr 22 20:32 EDT
+"FieldElementLargePrimeTest.Multiplication" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/12 Testing: FieldElementLargePrimeTest.Inverse
+6/12 Test: FieldElementLargePrimeTest.Inverse
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner" "--gtest_filter=FieldElementLargePrimeTest.Inverse" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"FieldElementLargePrimeTest.Inverse" start time: Apr 22 20:32 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = FieldElementLargePrimeTest.Inverse
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from FieldElementLargePrimeTest
+[ RUN      ] FieldElementLargePrimeTest.Inverse
+/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/test/fieldtest_large_prime.cpp:122: Failure
+Expected equality of these values:
+  neg_one.inv()
+    Which is: 227239200783092534449076146062029718069
+  neg_one
+    Which is: 270497897142230380135924736767050121216
+
+/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/test/fieldtest_large_prime.cpp:129: Failure
+Expected equality of these values:
+  val2 * val2_inv
+    Which is: 208084909306272935587365213518930104485
+  one
+    Which is: 1
+
+/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/test/fieldtest_large_prime.cpp:143: Failure
+Expected equality of these values:
+  gen * gen_inv
+    Which is: 20175718090258726520161809295009957858
+  one
+    Which is: 1
+
+[  FAILED  ] FieldElementLargePrimeTest.Inverse (0 ms)
+[----------] 1 test from FieldElementLargePrimeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] FieldElementLargePrimeTest.Inverse
+
+ 1 FAILED TEST
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"FieldElementLargePrimeTest.Inverse" end time: Apr 22 20:32 EDT
+"FieldElementLargePrimeTest.Inverse" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/12 Testing: FieldElementLargePrimeTest.Division
+7/12 Test: FieldElementLargePrimeTest.Division
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner" "--gtest_filter=FieldElementLargePrimeTest.Division" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"FieldElementLargePrimeTest.Division" start time: Apr 22 20:32 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = FieldElementLargePrimeTest.Division
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from FieldElementLargePrimeTest
+[ RUN      ] FieldElementLargePrimeTest.Division
+/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/test/fieldtest_large_prime.cpp:155: Failure
+Expected equality of these values:
+  val1 / val2
+    Which is: 258011323504947426020318853398060997524
+  val1 * val2.inv()
+    Which is: 265295986933756677960801534307389694613
+
+/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/test/fieldtest_large_prime.cpp:158: Failure
+Expected equality of these values:
+  (val1 / val2) * val2
+    Which is: 61043801176388234352675044642003440056
+  val1
+    Which is: 123456789012345678901234567890123456789
+
+/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/test/fieldtest_large_prime.cpp:162: Failure
+Expected equality of these values:
+  val1 / neg_one
+    Which is: 103782411770746855547841578171906261281
+  -val1
+    Which is: 147041108129884701234690168876926664428
+
+[  FAILED  ] FieldElementLargePrimeTest.Division (0 ms)
+[----------] 1 test from FieldElementLargePrimeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] FieldElementLargePrimeTest.Division
+
+ 1 FAILED TEST
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"FieldElementLargePrimeTest.Division" end time: Apr 22 20:32 EDT
+"FieldElementLargePrimeTest.Division" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/12 Testing: FieldElementLargePrimeTest.ExponentiationInt
+8/12 Test: FieldElementLargePrimeTest.ExponentiationInt
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner" "--gtest_filter=FieldElementLargePrimeTest.ExponentiationInt" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"FieldElementLargePrimeTest.ExponentiationInt" start time: Apr 22 20:32 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = FieldElementLargePrimeTest.ExponentiationInt
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from FieldElementLargePrimeTest
+[ RUN      ] FieldElementLargePrimeTest.ExponentiationInt
+[       OK ] FieldElementLargePrimeTest.ExponentiationInt (1 ms)
+[----------] 1 test from FieldElementLargePrimeTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"FieldElementLargePrimeTest.ExponentiationInt" end time: Apr 22 20:32 EDT
+"FieldElementLargePrimeTest.ExponentiationInt" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/12 Testing: FieldElementLargePrimeTest.ExponentiationFieldElement
+9/12 Test: FieldElementLargePrimeTest.ExponentiationFieldElement
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner" "--gtest_filter=FieldElementLargePrimeTest.ExponentiationFieldElement" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"FieldElementLargePrimeTest.ExponentiationFieldElement" start time: Apr 22 20:32 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = FieldElementLargePrimeTest.ExponentiationFieldElement
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from FieldElementLargePrimeTest
+[ RUN      ] FieldElementLargePrimeTest.ExponentiationFieldElement
+[       OK ] FieldElementLargePrimeTest.ExponentiationFieldElement (0 ms)
+[----------] 1 test from FieldElementLargePrimeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"FieldElementLargePrimeTest.ExponentiationFieldElement" end time: Apr 22 20:32 EDT
+"FieldElementLargePrimeTest.ExponentiationFieldElement" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/12 Testing: FieldElementLargePrimeTest.Generator
+10/12 Test: FieldElementLargePrimeTest.Generator
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner" "--gtest_filter=FieldElementLargePrimeTest.Generator" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build
+"FieldElementLargePrimeTest.Generator" start time: Apr 22 20:32 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = FieldElementLargePrimeTest.Generator
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from FieldElementLargePrimeTest
+[ RUN      ] FieldElementLargePrimeTest.Generator
+[       OK ] FieldElementLargePrimeTest.Generator (0 ms)
+[----------] 1 test from FieldElementLargePrimeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"FieldElementLargePrimeTest.Generator" end time: Apr 22 20:32 EDT
+"FieldElementLargePrimeTest.Generator" time elapsed: 00:00:00
+----------------------------------------------------------
+
