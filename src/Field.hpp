@@ -4,15 +4,16 @@
 #include <cassert>
 #include <vector>
 #include "ttmath/ttmath.h"
+#include "gmpxx.h"
 
 using std::vector;
 using std::string;
 using std::uint64_t;
 using ttmath::Int;
 
-#define BigInt Int<32>
+#define BigInt mpz_class
 
-const BigInt P = "270497897142230380135924736767050121217"; // 1 + 407 * ( 1 << 119 )
+const mpz_class P("270497897142230380135924736767050121217"); // 1 + 407 * ( 1 << 119 )
 
 void xgcd(BigInt x, BigInt y, BigInt &a, BigInt &b, BigInt &g) { // Extended Euclidean algorithm
     BigInt old_r = x;
@@ -52,6 +53,11 @@ class FieldElement {
         BigInt value;
     
         FieldElement(BigInt v = 0) : value((v + P) % P) {}
+
+        FieldElement(string s) {
+            value = BigInt(s);
+            value = (value + P) % P;
+        }
 
         FieldElement operator+(const FieldElement& other) const {
             BigInt res = value + other.value;
@@ -114,7 +120,7 @@ class FieldElement {
         }
 
         operator string() const {
-            return value.ToString(10);
+            return value.get_str(10);
         }
 
         friend std::ostream& operator<<(std::ostream& os, const FieldElement& x) {
@@ -124,7 +130,7 @@ class FieldElement {
 };
 
 FieldElement generator() {
-    BigInt g = "85408008396924667383611388730472331217";
+    BigInt g("85408008396924667383611388730472331217");
     FieldElement gen(g);
     return gen;
 }

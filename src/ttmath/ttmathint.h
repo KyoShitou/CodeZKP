@@ -1544,12 +1544,14 @@ public:
 
 	bool operator==(const Int<value_size> & l) const
 	{
-		return UInt<value_size>::operator==(l);
+		return this->ToString() == l.ToString();
+		// return UInt<value_size>::operator==(l);
 	}
 
 	bool operator!=(const Int<value_size> & l) const
 	{
-		return UInt<value_size>::operator!=(l);
+		return this->ToString() != l.ToString();
+		// return UInt<value_size>::operator!=(l);
 	}
 
 	bool operator<(const Int<value_size> & l) const
