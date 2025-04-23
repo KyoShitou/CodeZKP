@@ -136,7 +136,7 @@ FieldElement primitive_nth_root(BigInt n) {
 
     while (order != n) {
         g = g^2;
-        order <<= 1;
+        order = order / 2;
     }
     return g;
 }
