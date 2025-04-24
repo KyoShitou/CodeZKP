@@ -1,0 +1,16 @@
+PolynomialTest.ConstructorAndDegree 6 0.00132588
+PolynomialTest.EqualityOperators 5 0.0012159
+PolynomialTest.Negation 9 0.000556722
+PolynomialTest.Addition 8 0.00057075
+PolynomialTest.Subtraction 9 0.00048994
+PolynomialTest.Multiplication 7 0.000609405
+PolynomialTest.LeadingCoefficient 9 0.000464231
+PolynomialTest.DivisionAndModulo 6 0.000872521
+PolynomialTest.DivisionByFieldElement 9 0.000421361
+PolynomialTest.Exponentiation 2 0.00190248
+PolynomialTest.Evaluation 9 0.00040681
+PolynomialTest.Scale 8 0.000403844
+PolynomialTest.InterpolateDomain 2 0.00196388
+PolynomialTest.ZerofierDomain 7 0.000469119
+PolynomialTest.TestColinearity 2 0.00182977
+---

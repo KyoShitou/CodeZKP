@@ -1,0 +1,408 @@
+Start testing: Apr 24 01:15 EDT
+----------------------------------------------------------
+1/15 Testing: PolynomialTest.ConstructorAndDegree
+1/15 Test: PolynomialTest.ConstructorAndDegree
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.ConstructorAndDegree" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.ConstructorAndDegree" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.ConstructorAndDegree
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.ConstructorAndDegree
+[       OK ] PolynomialTest.ConstructorAndDegree (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.ConstructorAndDegree" end time: Apr 24 01:15 EDT
+"PolynomialTest.ConstructorAndDegree" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/15 Testing: PolynomialTest.EqualityOperators
+2/15 Test: PolynomialTest.EqualityOperators
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.EqualityOperators" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.EqualityOperators" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.EqualityOperators
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.EqualityOperators
+[       OK ] PolynomialTest.EqualityOperators (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.EqualityOperators" end time: Apr 24 01:15 EDT
+"PolynomialTest.EqualityOperators" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/15 Testing: PolynomialTest.Negation
+3/15 Test: PolynomialTest.Negation
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.Negation" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.Negation" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.Negation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.Negation
+[       OK ] PolynomialTest.Negation (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.Negation" end time: Apr 24 01:15 EDT
+"PolynomialTest.Negation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/15 Testing: PolynomialTest.Addition
+4/15 Test: PolynomialTest.Addition
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.Addition" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.Addition" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.Addition
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.Addition
+[       OK ] PolynomialTest.Addition (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.Addition" end time: Apr 24 01:15 EDT
+"PolynomialTest.Addition" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/15 Testing: PolynomialTest.Subtraction
+5/15 Test: PolynomialTest.Subtraction
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.Subtraction" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.Subtraction" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.Subtraction
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.Subtraction
+[       OK ] PolynomialTest.Subtraction (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.Subtraction" end time: Apr 24 01:15 EDT
+"PolynomialTest.Subtraction" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/15 Testing: PolynomialTest.Multiplication
+6/15 Test: PolynomialTest.Multiplication
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.Multiplication" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.Multiplication" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.Multiplication
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.Multiplication
+[       OK ] PolynomialTest.Multiplication (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.Multiplication" end time: Apr 24 01:15 EDT
+"PolynomialTest.Multiplication" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/15 Testing: PolynomialTest.LeadingCoefficient
+7/15 Test: PolynomialTest.LeadingCoefficient
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.LeadingCoefficient" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.LeadingCoefficient" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.LeadingCoefficient
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.LeadingCoefficient
+[       OK ] PolynomialTest.LeadingCoefficient (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.LeadingCoefficient" end time: Apr 24 01:15 EDT
+"PolynomialTest.LeadingCoefficient" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/15 Testing: PolynomialTest.DivisionAndModulo
+8/15 Test: PolynomialTest.DivisionAndModulo
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.DivisionAndModulo" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.DivisionAndModulo" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.DivisionAndModulo
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.DivisionAndModulo
+[       OK ] PolynomialTest.DivisionAndModulo (1 ms)
+[----------] 1 test from PolynomialTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.DivisionAndModulo" end time: Apr 24 01:15 EDT
+"PolynomialTest.DivisionAndModulo" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/15 Testing: PolynomialTest.DivisionByFieldElement
+9/15 Test: PolynomialTest.DivisionByFieldElement
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.DivisionByFieldElement" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.DivisionByFieldElement" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.DivisionByFieldElement
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.DivisionByFieldElement
+[       OK ] PolynomialTest.DivisionByFieldElement (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.DivisionByFieldElement" end time: Apr 24 01:15 EDT
+"PolynomialTest.DivisionByFieldElement" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/15 Testing: PolynomialTest.Exponentiation
+10/15 Test: PolynomialTest.Exponentiation
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.Exponentiation" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.Exponentiation" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.Exponentiation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.Exponentiation
+[       OK ] PolynomialTest.Exponentiation (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.Exponentiation" end time: Apr 24 01:15 EDT
+"PolynomialTest.Exponentiation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/15 Testing: PolynomialTest.Evaluation
+11/15 Test: PolynomialTest.Evaluation
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.Evaluation" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.Evaluation" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.Evaluation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.Evaluation
+[       OK ] PolynomialTest.Evaluation (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.Evaluation" end time: Apr 24 01:15 EDT
+"PolynomialTest.Evaluation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/15 Testing: PolynomialTest.Scale
+12/15 Test: PolynomialTest.Scale
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.Scale" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.Scale" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.Scale
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.Scale
+[       OK ] PolynomialTest.Scale (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.Scale" end time: Apr 24 01:15 EDT
+"PolynomialTest.Scale" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/15 Testing: PolynomialTest.InterpolateDomain
+13/15 Test: PolynomialTest.InterpolateDomain
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.InterpolateDomain" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.InterpolateDomain" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.InterpolateDomain
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.InterpolateDomain
+[       OK ] PolynomialTest.InterpolateDomain (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.InterpolateDomain" end time: Apr 24 01:15 EDT
+"PolynomialTest.InterpolateDomain" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/15 Testing: PolynomialTest.ZerofierDomain
+14/15 Test: PolynomialTest.ZerofierDomain
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.ZerofierDomain" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.ZerofierDomain" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.ZerofierDomain
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.ZerofierDomain
+[       OK ] PolynomialTest.ZerofierDomain (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.ZerofierDomain" end time: Apr 24 01:15 EDT
+"PolynomialTest.ZerofierDomain" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/15 Testing: PolynomialTest.TestColinearity
+15/15 Test: PolynomialTest.TestColinearity
+Command: "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/field_poly_tests" "--gtest_filter=PolynomialTest.TestColinearity" "--gtest_also_run_disabled_tests"
+Directory: /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP
+"PolynomialTest.TestColinearity" start time: Apr 24 01:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolynomialTest.TestColinearity
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolynomialTest
+[ RUN      ] PolynomialTest.TestColinearity
+[       OK ] PolynomialTest.TestColinearity (0 ms)
+[----------] 1 test from PolynomialTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PolynomialTest.TestColinearity" end time: Apr 24 01:15 EDT
+"PolynomialTest.TestColinearity" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Apr 24 01:15 EDT

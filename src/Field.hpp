@@ -1,3 +1,6 @@
+#ifndef FIELD_HPP
+#define FIELD_HPP
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -11,6 +14,7 @@ using std::uint64_t;
 using ttmath::Int;
 
 #define BigInt Int<32>
+#define ull unsigned long long
 
 const BigInt P = "270497897142230380135924736767050121217"; // 1 + 407 * ( 1 << 119 )
 
@@ -148,3 +152,5 @@ FieldElement sample(vector<uint8_t> &random_bytes) {
     }
     return FieldElement(acc);
 }
+
+#endif

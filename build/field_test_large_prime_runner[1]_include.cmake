@@ -1,5 +1,0 @@
-if(EXISTS "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner[1]_tests.cmake")
-  include("/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/build/field_test_large_prime_runner[1]_tests.cmake")
-else()
-  add_test(field_test_large_prime_runner_NOT_BUILT field_test_large_prime_runner_NOT_BUILT)
-endif()
