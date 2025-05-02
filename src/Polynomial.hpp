@@ -168,7 +168,7 @@ public:
         return result;
     }
 
-    FieldElement operator[](const FieldElement& x) const {
+    FieldElement operator[](const FieldElement& x) const { // evaluate polynomial at a given point
         FieldElement result = FieldElement(0);
         FieldElement x_i = FieldElement(1);
         for (auto & coeff : coeffs) {

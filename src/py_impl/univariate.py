@@ -158,6 +158,12 @@ class Polynomial:
 
     def scale( self, factor ):
         return Polynomial([(factor^i) * self.coefficients[i] for i in range(len(self.coefficients))])
+    
+    def __repr__(self):
+        l = []
+        for i in range(len(self.coefficients)):
+            l.append(f"{self.coefficients[i]} * x^{i}")
+        return " + ".join(l)
 
 def test_colinearity( points ):
     domain = [p[0] for p in points]

@@ -108,6 +108,7 @@ class Stark:
         # symbolically evaluate transition constraints
         point = [Polynomial([self.field.zero(), self.field.one()])] + trace_polynomials + [tp.scale(self.omicron) for tp in trace_polynomials]
         transition_polynomials = [a.evaluate_symbolic(point) for a in transition_constraints]
+        print(transition_polynomials)
 
         # divide out zerofier
         transition_quotients = [tp / self.transition_zerofier() for tp in transition_polynomials]
@@ -123,7 +124,8 @@ class Stark:
         #  - 2 for every transition quotient
         #  - 2 for every boundary quotient
         weights = self.sample_weights(1 + 2*len(transition_quotients) + 2*len(boundary_quotients), proof_stream.prover_fiat_shamir())
-
+        print([tq.degree() for tq in transition_quotients])
+        print(self.transition_quotient_degree_bounds(transition_constraints))
         assert([tq.degree() for tq in transition_quotients] == self.transition_quotient_degree_bounds(transition_constraints)), "transition quotient degrees do not match with expectation"
 
         # compute terms of nonlinear combination polynomial

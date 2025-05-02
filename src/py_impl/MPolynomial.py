@@ -1,4 +1,5 @@
 from Polynomial import Polynomial
+from algebra import *
 
 class MPolynomial:
     def __init__( self, dictionary ):
@@ -118,3 +119,18 @@ class MPolynomial:
                 prod = prod * (point[i]^k[i])
             acc = acc + prod
         return acc
+    
+
+def test():
+    field = Field.main()
+    x = MPolynomial(
+        {
+            (0, 0): field.one(),
+            (1, 0): FieldElement(2, field),
+            (0, 1): FieldElement(3, field),
+            (1, 1): FieldElement(4, field),
+       }
+    )
+    print((x^2).dictionary)
+
+test()

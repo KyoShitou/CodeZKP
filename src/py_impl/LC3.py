@@ -39,7 +39,7 @@ def transition_constraint(omicrom):
             numerator = numerator * (x - Opcode_lst[i])
             denominator = denominator * (Opcode_lst[k] - Opcode_lst[i])
         selector = numerator / denominator
-        return MPolynomial.lift(selector, 5)
+        return MPolynomial.lift(selector, 6)
 
     # Lagrange selector for opcode
     Lagrange_selectors = [Lagrange_selector(i) for i in range(len(Opcode_lst))]
@@ -57,7 +57,7 @@ def boundary_constraints(): # Hard coded for now
     f = Field.main()
     boundary = []
     boundary += [(0, i, FieldElement(j, f)) for i, j in [(0, 0), (1, 1), (2, 2), (3, 0), (4, 0), (5, 1), (6, 0)]]
-    boundary += [(1, i, FieldElement(j, f)) for i, j in [(0, 3), (1, 1), (2, 2), (3, 0), (4, 0), (5, 1), (6, 1)]]
+    boundary += [(2, i, FieldElement(j, f)) for i, j in [(0, 3), (1, 1), (2, 2), (3, 0), (4, 0), (5, 1), (6, 2)]]
 
     return boundary
 
@@ -68,8 +68,7 @@ def test():
     security_level = 2
     input_element = [FieldElement(i, field) for i in [0, 1, 2, 0, 0]] + [Opcodes["OP_ADD"]] + [FieldElement(0, field)]
     print("running trial with input:", input_element)
-    output_element = [FieldElement(i, field) for i in [3, 1, 2, 0, 0]] + [Opcodes["OP_ADD"]] + [FieldElement(1, field)]
-    num_cycles = 2
+    num_cycles = 4
     state_width = 7
 
     stark = Stark(field, expansion_factor, num_colinearity_checks, security_level, state_width, num_cycles)
@@ -78,7 +77,10 @@ def test():
     print("honest proof generation ...")
 
     # prove
-    trace = [[FieldElement(i, field) for i in [0, 1, 2, 0, 0]] + [Opcodes["OP_ADD"]] + [FieldElement(0, field)]] + [[FieldElement(i, field) for i in [3, 1, 2, 0, 0]] + [Opcodes["OP_ADD"]] + [FieldElement(1, field)]]
+    trace = [[FieldElement(i, field) for i in [0, 1, 2, 0, 0]] + [Opcodes["OP_ADD"]] + [FieldElement(0, field)]] + \
+            [[FieldElement(i, field) for i in [3, 1, 2, 0, 0]] + [Opcodes["OP_ADD"]] + [FieldElement(1, field)]] + \
+            [[FieldElement(i, field) for i in [3, 1, 2, 0, 0]] + [Opcodes["OP_ADD"]] + [FieldElement(2, field)]] + \
+            [[FieldElement(i, field) for i in [3, 1, 2, 0, 0]] + [Opcodes["OP_ADD"]] + [FieldElement(3, field)]]
     air = transition_constraint(stark.omicron)
     boundary = boundary_constraints()
     proof = stark.prove(trace, air, boundary)
