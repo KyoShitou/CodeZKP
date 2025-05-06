@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 #include "ttmath/ttmath.h"
 #include "Field.hpp"
 
@@ -245,5 +246,72 @@ bool test_colinearity(const vector<FieldElement>& domain, const vector<FieldElem
     Polynomial p = interpolate_domain(domain, values);
     return p.degree() <= 1;
 }
+
+
+std::ostream& operator<<(std::ostream& os, const Polynomial& p) {
+    int deg = p.degree();
+
+    // Handle the zero polynomial case
+    if (deg == -1) {
+        os << "0"; // Or perhaps "" depending on preference
+        return os;
+    }
+
+    // Handle constant zero polynomial case (if represented as {0})
+    if (deg == 0 && p.coeffs[0] == FieldElement(0)) {
+         os << "0";
+         return os;
+    }
+
+
+    bool first_term = true; // Flag to manage '+' signs
+
+    // Iterate from the highest degree term down to the constant term
+    for (int i = deg; i >= 0; --i) {
+        FieldElement coeff = p.coeffs[static_cast<size_t>(i)];
+        FieldElement zero(0);
+        FieldElement one(1);
+        FieldElement neg_one = -one; // Calculate -1 mod P
+
+        // Skip terms with zero coefficients
+        if (coeff == zero) {
+            continue;
+        }
+
+        // --- Handle '+' sign ---
+        if (!first_term) {
+            // Print " + " only if the coefficient isn't negative
+            // If coeff is negative, the '-' will come from the FieldElement output
+            // Note: This relies on FieldElement's operator<< printing negatives correctly.
+            // A more robust way handles the sign explicitly here.
+
+            // Let's handle sign explicitly for better formatting:
+            os << "+";
+        } else {
+            ;
+        }
+
+        if (i != 0) os << coeff << "*";
+        else os << coeff; // Print the coefficient
+
+        // --- Handle Variable 'x' and Exponent ---
+        if (i > 0) { // If it's not the constant term
+            os << "x";
+            if (i > 1) { // Add exponent only if degree > 1
+                os << "^" << i;
+            }
+        }
+
+        first_term = false; // Next term (if any) will need a "+" or "-"
+    }
+
+    // If no terms were printed (e.g., polynomial was {0, 0, 0}), print 0
+    if (first_term) {
+        os << "0";
+    }
+
+    return os; // Return the stream
+}
+
 
 #endif

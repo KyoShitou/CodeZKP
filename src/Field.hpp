@@ -16,7 +16,8 @@ using ttmath::Int;
 #define BigInt Int<32>
 #define ull unsigned long long
 
-const BigInt P = "270497897142230380135924736767050121217"; // 1 + 407 * ( 1 << 119 )
+// const BigInt P = "270497897142230380135924736767050121217"; // 1 + 407 * ( 1 << 119 )
+const BigInt P = "17"; // testing prime
 
 void xgcd(BigInt x, BigInt y, BigInt &a, BigInt &b, BigInt &g) { // Extended Euclidean algorithm
     BigInt old_r = x;
@@ -103,10 +104,13 @@ class FieldElement {
                 if (exp % 2 == 1) result = result * base;
                 base = base * base;
                 exp = exp >> 1;
-                std::cout << result << ", " << base << ", " << exp << std::endl;
             }
-            std::cout << __LINE__ << std::endl;
             return result;
+        }
+
+        FieldElement operator^(unsigned long long exp) const {
+            BigInt _exp = static_cast<ttmath::ulint>(exp);
+            return this->operator^(_exp);
         }
 
         bool operator==(const FieldElement& other) const {

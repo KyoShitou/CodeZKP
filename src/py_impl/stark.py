@@ -54,16 +54,16 @@ class Stark:
             zerofiers = zerofiers + [Polynomial.zerofier_domain(points)]
         return zerofiers
 
-    def boundary_interpolants( self, boundary ):
+    def boundary_interpolants( self, boundary : list[tuple[int, int, FieldElement]]):
         interpolants = []
         for s in range(self.num_registers):
-            points = [(c,v) for c, r, v in boundary if r == s]
+            points = [(c,v) for c, r, v in boundary if r == s] # points : list[tuple[int, FieldElement]] list of (cycle, value) for a given register
             if points == []:
                 continue
             domain = [self.omicron^c for c,v in points]
             values = [v for c,v in points]
             interpolants = interpolants + [Polynomial.interpolate_domain(domain, values)]
-        return interpolants
+        return interpolants # list[Polynomial] - list of interpolants of the boundary conditions for each register
 
     def boundary_quotient_degree_bounds( self, randomized_trace_length, boundary ):
         randomized_trace_degree = randomized_trace_length - 1
@@ -81,15 +81,19 @@ class Stark:
         for k in range(self.num_randomizers):
             trace = trace + [[self.field.sample(os.urandom(17)) for s in range(self.num_registers)]]
 
+        # trace : list[list[FieldElement]]
+
         # interpolate
         trace_domain = [self.omicron^i for i in range(len(trace))]
         trace_polynomials = []
         for s in range(self.num_registers):
-            single_trace = [trace[c][s] for c in range(len(trace))]
+            single_trace = [trace[c][s] for c in range(len(trace))] # single trace: list[FieldElement]
             trace_polynomials = trace_polynomials + [Polynomial.interpolate_domain(trace_domain, single_trace)]
 
+        # trace_polynomials : list[Polynomial]
+
         # subtract boundary interpolants and divide out boundary zerofiers
-        boundary_quotients = []
+        boundary_quotients = [] # list[Polynomial]
         for s in range(self.num_registers):
             interpolant = self.boundary_interpolants(boundary)[s]
             zerofier = self.boundary_zerofiers(boundary)[s]
@@ -97,7 +101,7 @@ class Stark:
             boundary_quotients += [quotient]
 
         # commit to boundary quotients
-        fri_domain = self.fri.eval_domain()
+        fri_domain = self.fri.eval_domain() # {g * (omicon^i)}
         boundary_quotient_codewords = []
         boundary_quotient_Merkle_roots = []
         for s in range(self.num_registers):
@@ -106,11 +110,15 @@ class Stark:
             proof_stream.push(merkle_root)
 
         # symbolically evaluate transition constraints
+
+        # [x, t0, t1, ..., t0n, t1n, ...] t0 - polynomial of trace of register 0
         point = [Polynomial([self.field.zero(), self.field.one()])] + trace_polynomials + [tp.scale(self.omicron) for tp in trace_polynomials]
         transition_polynomials = [a.evaluate_symbolic(point) for a in transition_constraints]
-        print(transition_polynomials)
+
+        # transition_polynomials : list[Polynomial] (went from Multivariate to Univariate)
 
         # divide out zerofier
+        # Need to vanish on every point in the domain {omicon^i}
         transition_quotients = [tp / self.transition_zerofier() for tp in transition_polynomials]
 
         # commit to randomizer polynomial

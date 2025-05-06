@@ -11,9 +11,10 @@ from enum import Enum
 Opcodes = {
     "OP_BR": FieldElement(0, Field.main()),
     "OP_ADD": FieldElement(1, Field.main()),
+    "OP_AND" : FieldElement(2, Field.main())
 }
 
-Opcode_lst = [Opcodes["OP_BR"], Opcodes["OP_ADD"]]
+Opcode_lst = [Opcodes["OP_BR"], Opcodes["OP_ADD"], Opcodes["OP_AND"]]
 
 def transition_constraint(omicrom):
     WIDTH = 7 # r0-r4 OPCODE PC
@@ -25,7 +26,7 @@ def transition_constraint(omicrom):
     
     # Lagrange selector
     print(type(OPCODE))
-    Z_s = (OPCODE - Opcodes["OP_BR"]) * (OPCODE - Opcodes["OP_ADD"])
+    Z_s = (OPCODE - Opcodes["OP_BR"]) * (OPCODE - Opcodes["OP_ADD"]) * (OPCODE - Opcodes["OP_AND"])
     air = [Z_s]
     print("Z_s", Z_s.dictionary)
     print("OPCODE", OPCODE.dictionary)
@@ -51,6 +52,9 @@ def transition_constraint(omicrom):
     for i in range(1, 5):
         air.append(Lagrange_selectors[Opcodes["OP_ADD"].value] * (vars[i + 1] - vars[i + WIDTH + 1]))
     
+    # AIR constraint for AND (Now assuming AND R0, R1, R2)
+    AIR_AND = Lagrange_selectors[Opcodes["OP_AND"].value] * (R0_ - R1 * R2)
+
     return air
 
 def boundary_constraints(): # Hard coded for now

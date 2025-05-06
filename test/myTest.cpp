@@ -11,221 +11,114 @@ Polynomial from_ints(const std::vector<int64_t>& ints) {
     return Polynomial(fe_coeffs);
 }
 
-void testEq() {
-    FieldElement FE_ZERO{BigInt(0)};
-    FieldElement FE_ONE{BigInt(1)};
-    FieldElement FE_TWO{BigInt(2)};
-    FieldElement FE_THREE{BigInt(3)};
-    FieldElement FE_FOUR{BigInt(4)};
-    FieldElement FE_FIVE{BigInt(5)};
-    FieldElement FE_NINE{BigInt(9)};
-    FieldElement FE_NEG_ONE{P - 1}; // P-1 is -1 mod P
+void test() {
+    Polynomial p = from_ints({16, 6, 2, 0, 1, 11, 15});
+    Polynomial z = zerofier_domain({FieldElement(1), FieldElement(13), FieldElement(16)});
+    Polynomial quotient = p / z;
+    cout << "Polynomial: " << p << std::endl;
+    cout << "Zerofier: " << z << std::endl;
+    cout << "Quotient: " << quotient << std::endl;
 
-    // Define some Polynomial objects for testing
-    Polynomial ZERO_POLY{}; // Default constructor -> zero polynomial
-    Polynomial P_CONST_ZERO{std::vector<FieldElement>{FE_ZERO}}; // Polynomial representing 0
-    Polynomial P_CONST_ONE{std::vector<FieldElement>{FE_ONE}};   // Polynomial representing 1
-    Polynomial P_CONST_FIVE{std::vector<FieldElement>{FE_FIVE}}; // Polynomial representing 5
-
-    // P(x) = x
-    Polynomial P_X{std::vector<FieldElement>{FE_ZERO, FE_ONE}};
-    // P(x) = 1 + 2x
-    Polynomial P_1_PLUS_2X{std::vector<FieldElement>{FE_ONE, FE_TWO}};
-    // P(x) = 3x^2
-    Polynomial P_3X2{std::vector<FieldElement>{FE_ZERO, FE_ZERO, FE_THREE}};
-     // P(x) = 1 + 2x + 3x^2
-    Polynomial P_1_PLUS_2X_PLUS_3X2{std::vector<FieldElement>{FE_ONE, FE_TWO, FE_THREE}};
-    // P(x) = 5 + x^3 (note the zero coefficients for x and x^2)
-    Polynomial P_5_PLUS_X3{std::vector<FieldElement>{FE_FIVE, FE_ZERO, FE_ZERO, FE_ONE}};
-
-    // Helper to create a polynomial from a vector of integers
-
-
-    cout << ((ZERO_POLY == Polynomial()) ? "true" : "false") << endl;
-    cout << ((ZERO_POLY == P_CONST_ZERO) ? "true" : "false") << endl; // Different representations
-    cout << ((P_CONST_ZERO == P_CONST_ONE) ? "true" : "false") << endl;
-    cout << ((P_X == Polynomial(std::vector<FieldElement>{FE_ZERO, FE_ONE})) ? "true" : "false") << endl;
-    cout << ((P_X == P_1_PLUS_2X) ? "true" : "false") << endl;
-
-    Polynomial p1{std::vector<FieldElement>{FE_ONE, FE_TWO}}; // 1 + 2x
-    Polynomial p2{std::vector<FieldElement>{FE_ONE, FE_TWO, FE_ZERO}}; // 1 + 2x + 0x^2
-
-    cout << ((p1 == p2) ? "true" : "false") << endl; // Based on current implementation comparing vectors directly
-
-    Polynomial p3{std::vector<FieldElement>{FE_ONE, FE_THREE}}; // 1 + 3x
-
-    cout << ((p1 == p3) ? "true" : "false") << endl;
-}
-
-void testMul() {
-    FieldElement FE_ZERO{BigInt(0)};
-    FieldElement FE_ONE{BigInt(1)};
-    FieldElement FE_TWO{BigInt(2)};
-    FieldElement FE_THREE{BigInt(3)};
-    FieldElement FE_FOUR{BigInt(4)};
-    FieldElement FE_FIVE{BigInt(5)};
-    FieldElement FE_NINE{BigInt(9)};
-    FieldElement FE_NEG_ONE{P - 1}; // P-1 is -1 mod P
-
-    // Define some Polynomial objects for testing
-    Polynomial ZERO_POLY{}; // Default constructor -> zero polynomial
-    Polynomial P_CONST_ZERO{std::vector<FieldElement>{FE_ZERO}}; // Polynomial representing 0
-    Polynomial P_CONST_ONE{std::vector<FieldElement>{FE_ONE}};   // Polynomial representing 1
-    Polynomial P_CONST_FIVE{std::vector<FieldElement>{FE_FIVE}}; // Polynomial representing 5
-
-    // P(x) = x
-    Polynomial P_X{std::vector<FieldElement>{FE_ZERO, FE_ONE}};
-    // P(x) = 1 + 2x
-    Polynomial P_1_PLUS_2X{std::vector<FieldElement>{FE_ONE, FE_TWO}};
-    // P(x) = 3x^2
-    Polynomial P_3X2{std::vector<FieldElement>{FE_ZERO, FE_ZERO, FE_THREE}};
-     // P(x) = 1 + 2x + 3x^2
-    Polynomial P_1_PLUS_2X_PLUS_3X2{std::vector<FieldElement>{FE_ONE, FE_TWO, FE_THREE}};
-    // P(x) = 5 + x^3 (note the zero coefficients for x and x^2)
-    Polynomial P_5_PLUS_X3{std::vector<FieldElement>{FE_FIVE, FE_ZERO, FE_ZERO, FE_ONE}};
-
-    cout << (P_1_PLUS_2X * ZERO_POLY == ZERO_POLY ? "true" : "false") << endl;
-    cout << (ZERO_POLY * P_1_PLUS_2X == ZERO_POLY ? "true" : "false") << endl;
-}
-
-void testDiv() {
-    FieldElement FE_ZERO{BigInt(0)};
-    FieldElement FE_ONE{BigInt(1)};
-    FieldElement FE_TWO{BigInt(2)};
-    FieldElement FE_THREE{BigInt(3)};
-    FieldElement FE_FOUR{BigInt(4)};
-    FieldElement FE_FIVE{BigInt(5)};
-    FieldElement FE_NINE{BigInt(9)};
-    FieldElement FE_NEG_ONE{P - 1}; // P-1 is -1 mod P
-
-    // Define some Polynomial objects for testing
-    Polynomial ZERO_POLY{}; // Default constructor -> zero polynomial
-    Polynomial P_CONST_ZERO{std::vector<FieldElement>{FE_ZERO}}; // Polynomial representing 0
-    Polynomial P_CONST_ONE{std::vector<FieldElement>{FE_ONE}};   // Polynomial representing 1
-    Polynomial P_CONST_FIVE{std::vector<FieldElement>{FE_FIVE}}; // Polynomial representing 5
-
-    // P(x) = x
-    Polynomial P_X{std::vector<FieldElement>{FE_ZERO, FE_ONE}};
-    // P(x) = 1 + 2x
-    Polynomial P_1_PLUS_2X{std::vector<FieldElement>{FE_ONE, FE_TWO}};
-    // P(x) = 3x^2
-    Polynomial P_3X2{std::vector<FieldElement>{FE_ZERO, FE_ZERO, FE_THREE}};
-     // P(x) = 1 + 2x + 3x^2
-    Polynomial P_1_PLUS_2X_PLUS_3X2{std::vector<FieldElement>{FE_ONE, FE_TWO, FE_THREE}};
-    // P(x) = 5 + x^3 (note the zero coefficients for x and x^2)
-    Polynomial P_5_PLUS_X3{std::vector<FieldElement>{FE_FIVE, FE_ZERO, FE_ZERO, FE_ONE}};
-
-    Polynomial quotient, remainder;
-
-    P_1_PLUS_2X_PLUS_3X2.divided_by(P_CONST_ONE, quotient, remainder);
-
-    cout << (quotient == P_1_PLUS_2X_PLUS_3X2 ? "true" : "false") << endl;
-    cout << (remainder == ZERO_POLY ? "true" : "false") << endl;
-
-    P_1_PLUS_2X_PLUS_3X2.divided_by(P_1_PLUS_2X_PLUS_3X2, quotient, remainder);
-    cout << (quotient == P_CONST_ONE ? "true" : "false") << endl;
-    cout << (remainder == ZERO_POLY ? "true" : "false") << endl;
-
-    try
-    {
-        P_X.divided_by(ZERO_POLY, quotient, remainder);
+    FieldElement omega(3);
+    vector<FieldElement> domain(16, FieldElement(0));
+    for (size_t i = 0; i != domain.size(); i++) {
+        domain[i] = omega ^ static_cast<ttmath::ulint>(i);
+        cout << domain[i] << " ";
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
+    cout << std::endl;
+
+    cout << "Prover commits evaluation of quotient polynomial at domain points" << std::endl;
+    for (size_t i = 0; i != domain.size(); i++) {
+        FieldElement eval = quotient[domain[i]];
+        cout << eval << " ";
     }
-    
-    try
-    {
-        P_X / ZERO_POLY;
+    cout << std::endl;
+
+    FieldElement challenge = FieldElement(5);
+    cout << "Verifier challenges prover with a random point" << challenge << std::endl;
+    cout << "Prover folds the polynomial according to the challenge" << std::endl;
+
+    vector<FieldElement> folded_domain;
+    for (size_t i = 0; i != domain.size() / 2; i++) {
+        folded_domain.push_back(omega^(2 * i));
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
+    cout << "Folded domain: ";
+    for (size_t i = 0; i != folded_domain.size(); i++) {
+        cout << folded_domain[i] << " ";
     }
-    
-    try
-    {
-        P_X % ZERO_POLY;
+    cout << std::endl;
+
+    vector<FieldElement> folded_evals;
+    cout << "Folded evaluations: ";
+    for (size_t i = 0; i != folded_domain.size(); i++) {
+        FieldElement two = FieldElement(2);
+        FieldElement even = quotient[(omega^i)] + quotient[ -(omega^i)];
+        even = even * (two.inv());
+
+        FieldElement odd = quotient[(omega^i)] - quotient[ -(omega^i) ];
+        odd = odd * (two.inv());
+        odd = odd * ((omega^i).inv());
+        odd = odd * (challenge);
+
+        folded_evals.push_back(odd + even);
+        cout << folded_evals[i] << " ";
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
+    cout << std::endl;
+
+    cout << "Verifier samples a random point from the folded domain i = " << FieldElement(3) << std::endl;
+    cout << "calculate point A(omega^i, f(omega^i)): ( " << (omega^3) << ", " << quotient[(omega^3)] << " )" << std::endl;
+    cout << "calculate point B(omega^{N / 2 + i}, f(omega^{N / 2 + i})): ( " << (omega^(8 + 3)) << ", " << quotient[(omega^(8 + 3))] << " )" << std::endl;
+    cout << "calculate point C(\\alpha, f^*(omega^{2i})): ( " << challenge << ", " << folded_evals[3] << " )" << std::endl;
+
+    cout << "Verifier performs a collinearity test: " << (test_colinearity({FieldElement(10), FieldElement(7), FieldElement(5)}, {FieldElement(10), FieldElement(8), FieldElement(1)}) == true ? "accept" : "reject") << std::endl;
+
+    cout << "Both prover and verifier sets omega_new = omega^2 = " << (omega^2) << std::endl;
+    cout << "Round 2 domain: ";
+    omega = omega^2;
+    domain = folded_domain;
+    vector<FieldElement> new_eval = folded_evals;
+    for (size_t i = 0; i != domain.size(); i++) {
+        cout << domain[i] << " ";
     }
-    
-    Polynomial p_x_plus_2x2 = from_ints({0, 1, 2});
-    Polynomial expected_q1 = from_ints({1, 2});
-    p_x_plus_2x2.divided_by(P_X, quotient, remainder);
-
-    cout << "Polynomial: " << (string)p_x_plus_2x2 << endl;
-    cout << "Divisor: " << (string)P_X << endl;
-    cout << "Quotient: " << (string)quotient << endl;
-    cout << "Remainder: " << (string)remainder << endl;
-
-    cout << (quotient == expected_q1 ? "true" : "false") << endl;
-    cout << (remainder == ZERO_POLY ? "true" : "false") << endl;
-    cout << (p_x_plus_2x2 / P_X == expected_q1 ? "true" : "false") << endl;
-    cout << (p_x_plus_2x2 % P_X == ZERO_POLY ? "true" : "false") << endl;
-
-    Polynomial expected_q2 = from_ints({2, 3});
-    Polynomial expected_r2 = from_ints({1});
-    P_1_PLUS_2X_PLUS_3X2.divided_by(P_X, quotient, remainder);
-    // 1 + 2x + 3x^2 = (2 + 3x)(x) + 1
-
-    cout << "Polynomial: " << (string)P_1_PLUS_2X_PLUS_3X2 << endl;
-    cout << "Divisor: " << (string)P_X << endl;
-    cout << "Quotient: " << (string)quotient << endl;
-    cout << "Remainder: " << (string)remainder << endl;
-
-    cout << (quotient == expected_q2 ? "true" : "false") << endl;
-    cout << (remainder == expected_r2 ? "true" : "false") << endl;
-    cout << (string)remainder << endl;
-    cout << (P_1_PLUS_2X_PLUS_3X2 % P_X == expected_r2 ? "true" : "false") << endl;
-    try {
-        P_1_PLUS_2X_PLUS_3X2 / P_X;
+    cout << std::endl;
+    cout << "Round 2 evaluations: ";
+    for (size_t i = 0; i != new_eval.size(); i++) {
+        cout << new_eval[i] << " ";
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
+    cout << std::endl;
+
+    challenge = FieldElement(4);
+    cout << "Verifier challenges prover with a random point " << challenge << std::endl;
+    cout << "Prover folds the polynomial according to the challenge" << std::endl;
+    folded_domain.clear();
+    for (size_t i = 0; i != domain.size() / 2; i++) {
+        folded_domain.push_back(omega^(2 * i));
     }
-}
+    cout << "Folded domain: ";
+    for (size_t i = 0; i != folded_domain.size(); i++) {
+        cout << folded_domain[i] << " ";
+    }
+    cout << std::endl;
+    folded_evals.clear();
+    cout << "Folded evaluations: ";
+    for (size_t i = 0; i != folded_domain.size(); i++) {
+        FieldElement two = FieldElement(2);
+        FieldElement even = new_eval[i] + new_eval[ i + domain.size()/2 ];
+        even = even * (two.inv());
 
-void testExp(){
-    FieldElement FE_ZERO{BigInt(0)};
-    FieldElement FE_ONE{BigInt(1)};
-    FieldElement FE_TWO{BigInt(2)};
-    FieldElement FE_THREE{BigInt(3)};
-    FieldElement FE_FOUR{BigInt(4)};
-    FieldElement FE_FIVE{BigInt(5)};
-    FieldElement FE_NINE{BigInt(9)};
-    FieldElement FE_NEG_ONE{P - 1}; // P-1 is -1 mod P
+        FieldElement odd = new_eval[i] - new_eval[ i + domain.size()/2 ];
+        odd = odd * (two.inv());
+        odd = odd * ((omega^i).inv());
+        odd = odd * (challenge);
 
-    // Define some Polynomial objects for testing
-    Polynomial ZERO_POLY{}; // Default constructor -> zero polynomial
-    Polynomial P_CONST_ZERO{std::vector<FieldElement>{FE_ZERO}}; // Polynomial representing 0
-    Polynomial P_CONST_ONE{std::vector<FieldElement>{FE_ONE}};   // Polynomial representing 1
-    Polynomial P_CONST_FIVE{std::vector<FieldElement>{FE_FIVE}}; // Polynomial representing 5
-
-    // P(x) = x
-    Polynomial P_X{std::vector<FieldElement>{FE_ZERO, FE_ONE}};
-    // P(x) = 1 + 2x
-    Polynomial P_1_PLUS_2X{std::vector<FieldElement>{FE_ONE, FE_TWO}};
-    // P(x) = 3x^2
-    Polynomial P_3X2{std::vector<FieldElement>{FE_ZERO, FE_ZERO, FE_THREE}};
-     // P(x) = 1 + 2x + 3x^2
-    Polynomial P_1_PLUS_2X_PLUS_3X2{std::vector<FieldElement>{FE_ONE, FE_TWO, FE_THREE}};
-    // P(x) = 5 + x^3 (note the zero coefficients for x and x^2)
-    Polynomial P_5_PLUS_X3{std::vector<FieldElement>{FE_FIVE, FE_ZERO, FE_ZERO, FE_ONE}};
-
-    cout << ((P_1_PLUS_2X ^ BigInt(0)) == P_CONST_ONE ? "true" : "false") << endl;
-    cout << ((ZERO_POLY ^ BigInt(0)) == P_CONST_ONE ? "true" : "false") << endl;
-    cout << ((P_1_PLUS_2X ^ BigInt(1)) == P_1_PLUS_2X ? "true" : "false") << endl;
-    cout << ((ZERO_POLY ^ BigInt(1)) == ZERO_POLY ? "true" : "false") << endl;
-
-
+        folded_evals.push_back(odd + even);
+        cout << folded_evals[i] << " ";
+    }
+    cout << std::endl;
+        
 }
 
 int main(){
-    testExp();
+    test();
     return 0;
 }
