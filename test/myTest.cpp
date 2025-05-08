@@ -12,6 +12,7 @@ Polynomial from_ints(const std::vector<int64_t>& ints) {
 }
 
 void test() {
+    
     Polynomial p = from_ints({16, 6, 2, 0, 1, 11, 15});
     Polynomial z = zerofier_domain({FieldElement(1), FieldElement(13), FieldElement(16)});
     Polynomial quotient = p / z;
