@@ -7,6 +7,8 @@
 #include <cassert>
 #include <vector>
 #include "ttmath/ttmath.h"
+#include "merklecpp.h"
+#include <openssl/sha.h>
 
 using std::vector;
 using std::string;
@@ -57,6 +59,14 @@ class FieldElement {
         BigInt value;
     
         FieldElement(BigInt v = 0) : value((v + P) % P) {}
+        FieldElement(const size_t& v) {
+            value = BigInt(static_cast<ttmath::ulint>(v));
+            value = (value + P) % P;
+        }
+        FieldElement(const string& s) {
+            value = BigInt(s);
+            value = (value + P) % P;
+        }
 
         FieldElement operator+(const FieldElement& other) const {
             BigInt res = value + other.value;
@@ -155,6 +165,13 @@ FieldElement sample(vector<uint8_t> &random_bytes) {
         acc = (acc << 8) ^ byte;
     }
     return FieldElement(acc);
+}
+
+merkle::Hash hash_from_FieldElement(const FieldElement& fe) {
+    string rep = (string)fe;
+    merkle::Hash h;
+    SHA256(reinterpret_cast<const uint8_t*>(rep.data()), rep.size(), h.bytes);
+    return h;
 }
 
 #endif

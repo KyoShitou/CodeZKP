@@ -7,13 +7,19 @@
 #include <algorithm>
 #include <bitset>
 #include "Polynomial.hpp"
-#include "utils.hpp"
 
 using std::bitset;
 using std::vector;
 using std::string;
 using std::map;
 using std::max_element;
+
+template <typename T>
+vector<T> pad_vector(const vector<T>& vec, size_t size, T value = T()) {
+    vector<T> new_vec = vec;
+    new_vec.insert(new_vec.end(), size, value);
+    return new_vec;
+}
 
 class MPolynomial {
     public:
@@ -150,7 +156,36 @@ class MPolynomial {
         for (const auto& pair : dict) {
             Polynomial prod = Polynomial(vector<FieldElement>{pair.second});
             for (size_t i = 0; i != pair.first.size(); i++) {
-                prod = prod * (x[i]^(pair.first[i]));
+                try {
+                    prod = prod * (x[i]^(pair.first[i]));
+                }
+                catch (const std::exception& e) {
+                    std::cerr << "Error: " << e.what() << std::endl;
+                    for (auto &p : dict) {
+                        vector<BigInt> k = p.first;
+
+                        std::cerr << "(";
+                        for (size_t j = 0; j != k.size(); j++) {
+                            std::cerr << k[j];
+                            if (j != k.size() - 1) std::cerr << ", ";
+                        }
+                        std::cerr << ") : " << p.second << ", " << std::endl;
+                    }
+
+                    std::cerr << std::endl;
+
+                    std::cerr << "[";
+                    for (auto &p : x) {
+                        std::cerr << "[";
+                        for (size_t j = 0; j != p.coeffs.size(); j++) {
+                            std::cerr << p.coeffs[j];
+                            if (j != p.coeffs.size() - 1) std::cerr << ", ";
+                        }
+                        std::cerr << "]" << ", " << std::endl;
+                    }
+                    std::cerr << "]" << std::endl;
+                    assert(false);
+                };
             }
             result = result + prod;
         }

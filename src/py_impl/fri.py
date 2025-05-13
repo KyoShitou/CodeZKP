@@ -61,6 +61,7 @@ class Fri:
         codewords = []
 
         # for each round
+        print("num rounds:", self.num_rounds())
         for r in range(self.num_rounds()):
             N = len(codeword)
 
@@ -77,18 +78,28 @@ class Fri:
 
             # get challenge
             alpha = self.field.sample(proof_stream.prover_fiat_shamir())
-
             # collect codeword
             codewords += [codeword]
 
             # split and fold
-            codeword = [two.inverse() * ( (one + alpha / (offset * (omega^i)) ) * codeword[i] + (one - alpha / (offset * (omega^i)) ) * codeword[N//2 + i] ) for i in range(N//2)]
+            # print("first term:", (one + alpha / (offset * (omega^0)) ) * codeword[0])
+            # print("second term:", (one - alpha / (offset * (omega^0)) ) * codeword[N//2 + 0])
+            # print(N // 2)
+            
+            codeword = [
+                two.inverse() * ( 
+                    (one + alpha / (offset * (omega^i)) ) * codeword[i] + 
+                    (one - alpha / (offset * (omega^i)) ) * codeword[N//2 + i] 
+                    ) for i in range(N//2)]
+            
+            # print("splited codeword", codeword)
 
             omega = omega^2
             offset = offset^2
 
         # send last codeword
         proof_stream.push(codeword)
+        print("last codeword:", codeword)
 
         # collect last codeword too
         codewords = codewords + [codeword]
@@ -230,3 +241,24 @@ class Fri:
         # all checks passed
         return True
 
+
+# def test():
+#     field = Field.main()
+#     expansion_factor = 4
+#     omega = field.primitive_nth_root(256)
+#     offset = field.generator()
+
+#     print("omega:", omega)
+#     print("offset:", offset)
+
+#     initial_domain_length = 256
+#     testPoly = Polynomial([FieldElement(i, field) for i in range(1, 6)])
+#     print("test polynomial:", testPoly)
+#     Fri_test = Fri(offset, omega, initial_domain_length, expansion_factor, 2)
+#     proof_stream = ProofStream()
+#     codeword = testPoly.evaluate_domain(Fri_test.eval_domain())
+#     print("codeword:", codeword)
+#     proof = Fri_test.prove(codeword, proof_stream)
+
+
+# test()

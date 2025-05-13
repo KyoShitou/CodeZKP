@@ -24,6 +24,7 @@ class Stark:
         randomized_trace_length = self.original_trace_length + self.num_randomizers
         omicron_domain_length = 1 << len(bin(randomized_trace_length * transition_constraints_degree)[2:])
         fri_domain_length = omicron_domain_length * expansion_factor
+        print("fri domain length: ", fri_domain_length)
 
         self.generator = self.field.generator()
         self.omega = self.field.primitive_nth_root(fri_domain_length)
@@ -89,9 +90,9 @@ class Stark:
         for s in range(self.num_registers):
             single_trace = [trace[c][s] for c in range(len(trace))] # single trace: list[FieldElement]
             trace_polynomials = trace_polynomials + [Polynomial.interpolate_domain(trace_domain, single_trace)]
-
+            print(trace_polynomials[s])
         # trace_polynomials : list[Polynomial]
-
+        print(max([tp.degree() for tp in trace_polynomials]))
         # subtract boundary interpolants and divide out boundary zerofiers
         boundary_quotients = [] # list[Polynomial]
         for s in range(self.num_registers):
@@ -114,12 +115,14 @@ class Stark:
         # [x, t0, t1, ..., t0n, t1n, ...] t0 - polynomial of trace of register 0
         point = [Polynomial([self.field.zero(), self.field.one()])] + trace_polynomials + [tp.scale(self.omicron) for tp in trace_polynomials]
         transition_polynomials = [a.evaluate_symbolic(point) for a in transition_constraints]
+        print(max([tp.degree() for tp in transition_polynomials]))
 
         # transition_polynomials : list[Polynomial] (went from Multivariate to Univariate)
 
         # divide out zerofier
         # Need to vanish on every point in the domain {omicon^i}
         transition_quotients = [tp / self.transition_zerofier() for tp in transition_polynomials]
+        print(max([tq.degree() for tq in transition_quotients]))
 
         # commit to randomizer polynomial
         randomizer_polynomial = Polynomial([self.field.sample(os.urandom(17)) for i in range(self.max_degree(transition_constraints)+1)])
@@ -151,6 +154,7 @@ class Stark:
         # take weighted sum
         # combination = sum(weights[i] * terms[i] for all i)
         combination = reduce(lambda a, b : a+b, [Polynomial([weights[i]]) * terms[i] for i in range(len(terms))], Polynomial([]))
+        print("combination degree: ", combination.degree())
 
         # compute matching codeword
         combined_codeword = combination.evaluate_domain(fri_domain)

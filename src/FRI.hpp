@@ -2,13 +2,14 @@
 #define FRI_HPP
 
 #include "Field.hpp"
+#include "Polynomial.hpp"
 #include "merklecpp.h"
 namespace FRI {
     class FRI {
 
     };
-    size_t expansion_factor = 2;
-    size_t num_colinearity_checks = 2;
+    size_t expansion_factor = 4;
+    size_t num_colinearity_checks = 1;
 
     size_t num_rounds(size_t domain_length) {
         size_t rounds = 0;
@@ -22,10 +23,10 @@ namespace FRI {
     void prove(const vector<FieldElement> &codeword, 
         const FieldElement &_omega,
         const FieldElement &_offset,
-        const void (*commit)(void*), 
-        const void (*get_challenge)(void*), 
-        const void (*get_colinearity_challenge)(void*),
-        const void (*open_merkle)(void*)) {
+        void (*commit)(void*), 
+        void (*get_challenge)(void*), 
+        void (*get_colinearity_challenge)(void*),
+        void (*open_merkle)(void*)) {
             size_t domain_length = codeword.size();
             size_t rounds = num_rounds(domain_length);
             vector<FieldElement> cur_codeword = codeword;
@@ -38,6 +39,9 @@ namespace FRI {
                 commit((void*)&cur_codeword);
                 FieldElement challenge;
                 get_challenge((void*)&challenge);
+                std::cout << "First term: " << (FieldElement(1) + challenge / (offset * (omega^0))) * cur_codeword[0] << std::endl;
+                std::cout << "Second term: " << (FieldElement(1) - challenge / (offset * (omega^0))) * cur_codeword[0 + domain_length / 2] << std::endl;
+                std::cout << domain_length / 2 << std::endl;
                 for (size_t j = 0; j != cur_codeword.size() / 2; j++) {
                     folded_codeword.push_back(
                         FieldElement(2).inv() * (
@@ -53,10 +57,10 @@ namespace FRI {
                     assert(index != 0);
                     vector<FieldElement> colinearity_points_x;
                     vector<FieldElement> colinearity_points_y;
-                    colinearity_points_x.push_back((offset * omega^index));
+                    colinearity_points_x.push_back((offset * (omega^index)));
                     colinearity_points_y.push_back(cur_codeword[index]);
 
-                    colinearity_points_x.push_back((offset * omega^(index + domain_length / 2)));
+                    colinearity_points_x.push_back((offset * (omega^(index + domain_length / 2))));
                     colinearity_points_y.push_back(cur_codeword[index + domain_length / 2]);
 
                     colinearity_points_x.push_back((challenge));
@@ -75,6 +79,11 @@ namespace FRI {
                 domain_length = domain_length / 2;
                 offset = (offset^2);
                 omega = omega * omega;
+
+                vector<FieldElement> new_domain;
+                for (size_t j = 0; j != cur_codeword.size(); j++) {
+                    new_domain.push_back(offset * omega^j);
+                }
             }
         }
 }

@@ -18,7 +18,6 @@ using std::endl;
 
 merkle::Hash hash_from_FieldElement(const FieldElement& fe) {
     string rep = (string)fe;
-    
     merkle::Hash h;
     SHA256(reinterpret_cast<const uint8_t*>(rep.data()), rep.size(), h.bytes);
     return h;

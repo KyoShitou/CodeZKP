@@ -14,8 +14,11 @@ class Polynomial{
 
 public:
     vector<FieldElement> coeffs;
-    Polynomial() {coeffs = vector<FieldElement>();}
+    Polynomial() {coeffs = vector<FieldElement>(0);} 
     Polynomial(const vector<FieldElement>& coeffs) : coeffs(coeffs) {}
+    Polynomial(const FieldElement& c) {
+        coeffs = vector<FieldElement>{c};
+    }
 
     int64_t degree() const {
         if (coeffs.empty()) return -1;
@@ -76,6 +79,11 @@ public:
             }
         }
         return Polynomial(new_coeffs);
+    }
+
+    Polynomial operator*(const FieldElement &other) const {
+        Polynomial other_poly = Polynomial(vector<FieldElement>{other});
+        return this->operator*(other_poly);
     }
 
     bool operator==(const Polynomial &other) const {
@@ -213,7 +221,7 @@ Polynomial interpolate_domain(const vector<FieldElement> &domain, const vector<F
     if (domain.size() != values.size()) {
         throw std::invalid_argument("Domain and values must have the same size");
     }
-    Polynomial result;
+    Polynomial result = Polynomial();
     Polynomial x(vector<FieldElement>{FieldElement(0), FieldElement(1)});
     
     for (size_t i = 0; i != domain.size(); i++) {
