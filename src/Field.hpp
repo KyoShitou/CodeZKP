@@ -89,6 +89,10 @@ class FieldElement {
             return FieldElement(value * a % P);
         }
 
+        FieldElement operator%(const FieldElement& other) const {
+            return FieldElement(value % other.value);
+        }
+
         FieldElement operator-() const {
             return FieldElement((P - value) % P);
         }

@@ -1,5 +1,0 @@
-if(EXISTS "/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/cmake-build-debug/field_tests_runner[1]_tests.cmake")
-  include("/Users/kyoshitou/Documents/NYU/blockchain/CodeZKP/cmake-build-debug/field_tests_runner[1]_tests.cmake")
-else()
-  add_test(field_tests_runner_NOT_BUILT field_tests_runner_NOT_BUILT)
-endif()

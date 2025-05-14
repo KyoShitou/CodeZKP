@@ -39,9 +39,6 @@ namespace FRI {
                 commit((void*)&cur_codeword);
                 FieldElement challenge;
                 get_challenge((void*)&challenge);
-                std::cout << "First term: " << (FieldElement(1) + challenge / (offset * (omega^0))) * cur_codeword[0] << std::endl;
-                std::cout << "Second term: " << (FieldElement(1) - challenge / (offset * (omega^0))) * cur_codeword[0 + domain_length / 2] << std::endl;
-                std::cout << domain_length / 2 << std::endl;
                 for (size_t j = 0; j != cur_codeword.size() / 2; j++) {
                     folded_codeword.push_back(
                         FieldElement(2).inv() * (

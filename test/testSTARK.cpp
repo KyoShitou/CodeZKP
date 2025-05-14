@@ -2,6 +2,10 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+
+#include <chrono>
+
+
 using std::vector;
 using std::cout;
 using std::endl;
@@ -40,13 +44,13 @@ void stark_commit(void *data) {
     vector<vector<FieldElement> > boundary_quotient_codewords = *static_cast<vector<vector<FieldElement> > *>(data);
     cout << "Stark commit" << endl;
     cout << "Boundary quotient codewords: ";
-    // for (const auto &codeword : boundary_quotient_codewords) {
-    //     cout << "[ ";
-    //     for (const auto &code : codeword) {
-    //         cout << code << " ";
-    //     }
-    //     cout << "] ";
-    // }
+    for (const auto &codeword : boundary_quotient_codewords) {
+        cout << "[ ";
+        for (const auto &code : codeword) {
+            cout << code << " ";
+        }
+        cout << "] ";
+    }
     cout << endl;
 }
 
@@ -54,9 +58,9 @@ void stark_challenge(void *data) {
     vector<FieldElement> *challenge = static_cast<vector<FieldElement> *>(data);
     cout << "Stark challenge, need " << challenge->size() << " field elements" << endl;
     for (size_t i = 0; i < challenge->size(); i++) {
-        // int c;
-        // cin >> c;
-        (*challenge)[i] = FieldElement(i);
+        int c;
+        cin >> c;
+        (*challenge)[i] = FieldElement(c);
     }
     return;
 }
@@ -83,6 +87,7 @@ void fri_getchallenge(void *data) {
 void fri_getcolinearity_challenge(void *data) {
     size_t *index = static_cast<size_t *>(data);
     cout << "FRI get colinearity challenge: " << endl;
+    *index = 2;
     cin >> *index;
     return;
 }
@@ -196,12 +201,15 @@ vector<tuple<size_t, size_t, FieldElement> > boundary_constraints(vector<vector<
 }
 
 int main() {
+    auto start = std::chrono::high_resolution_clock::now();
     // For clear understanding, represent the trace matrix as a matrix of integers
     vector<vector<int> > int_trace_matrix = {
         {0, 0, 0, 0, 0, 1, 0, 0, 1, 10, 0, 0},
-        {10, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1},
-        {10, 0, 0, 0, 0, 2, 1, 0, 0, 0, 10, 2},
-        {10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 10, 3}
+        {10, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 0},
+        {10, 0, 0, 0, 0, 2, 1, 0, 0, 0, 2, 10},
+        {10, 10, 0, 0, 0, 1, 0, 1, 0, 0, 3, 10},
+        {20, 10, 0, 0, 0, 0, 0, 0, 0, 0, 4, 10},
+        {20, 10, 0, 0, 0, 0, 0, 0, 0, 0, 5, 10}
     };
 
     vector<vector<FieldElement> > trace_matrix(int_trace_matrix.size(), vector<FieldElement>(int_trace_matrix[0].size()));
@@ -212,19 +220,7 @@ int main() {
     }
 
     vector<MPolynomial> transition_constraints = ::transition_constraints();
-    BigInt degree = 0;
-    for (auto &c : transition_constraints) {
-        for (auto &p : c.dict) {
-            BigInt total_deg = 0;
-            for (auto &v : p.first) {
-                total_deg += v;
-            }
-            if (total_deg > degree) {
-                degree = total_deg;
-            }
-        }
-    }
-    cout << "Degree of transition constraints: " << degree << endl;
+  
     vector<tuple<size_t, size_t, FieldElement> > boundary_constraints = ::boundary_constraints(int_trace_matrix);
     vector<void (*) (void*)> fri_fns = {fri_commit, fri_getchallenge, fri_getcolinearity_challenge, fri_open_merkle};
     STARK::prove(
@@ -238,4 +234,7 @@ int main() {
         4,
         1
     );
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    cout << "Time taken: " << duration.count() << " milliseconds" << endl;
 }
