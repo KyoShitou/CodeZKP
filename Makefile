@@ -1,6 +1,6 @@
 # Compiler and flags
 
-all: STARK_interactive STARK_witness
+all: test_interactive test_witness STARK
 
 CXX := g++
 CXXFLAGS := -std=c++20 -O2 -Wall -w 
@@ -10,12 +10,15 @@ OPENSSL_LDFLAGS := $(shell $(PKG_CONFIG) --libs openssl)
 
 # Source files and targets
 SRC_DIR := ./test
-TARGETS := STARK_interactive STARK_witness
+TARGETS := test_interactive test_witness STARK
 
-STARK_interactive: $(SRC_DIR)/testStark.cpp
+test_interactive: $(SRC_DIR)/testStark.cpp
 	$(CXX) $(CXXFLAGS) $(OPENSSL_CFLAGS) $< -o $@ $(OPENSSL_LDFLAGS)
 
-STARK_witness: $(SRC_DIR)/testWitness.cpp
+test_witness: $(SRC_DIR)/testWitness.cpp
+	$(CXX) $(CXXFLAGS) $(OPENSSL_CFLAGS) $< -o $@ $(OPENSSL_LDFLAGS)
+
+STARK: STARK.cpp 
 	$(CXX) $(CXXFLAGS) $(OPENSSL_CFLAGS) $< -o $@ $(OPENSSL_LDFLAGS)
 
 .PHONY: all clean
